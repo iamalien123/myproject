@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee List</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        .btn { padding: 5px 10px; margin: 2px; text-decoration: none; color: white; border-radius: 3px; }
+        .add { background-color: #4CAF50; }
+        .edit { background-color: #2196F3; }
+        .delete { background-color: #f44336; }
+    </style>
+</head>
+<body>
+    <h1>Employee List</h1>
+    <a href="{% url 'employee_add' %}" class="btn add">Add New Employee</a><br><br>
+    <table>
+        <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Department</th>
+            <th>Designation</th>
+            <th>Actions</th>
+        </tr>
+        {% for employee in employees %}
+        <tr>
+            <td>{{ employee.emp_id }}</td>
+            <td>{{ employee.emp_name }}</td>
+            <td>{{ employee.salary }}</td>
+            <td>{{ employee.department }}</td>
+            <td>{{ employee.designation }}</td>
+            <td>
+                <a href="{% url 'employee_edit' employee.emp_id %}" class="btn edit">Edit</a>
+                <a href="{% url 'employee_delete' employee.emp_id %}" class="btn delete" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
