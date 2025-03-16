@@ -33,7 +33,7 @@ urlpatterns = [
     path('employee/edit/<int:emp_id>/', views.employee_edit, name='employee_edit'),
     path('employee/delete/<int:emp_id>/', views.employee_delete, name='employee_delete'),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('shop/', include('shop.urls')),
+    path('', include('shop.urls')),
     path('logout/', auth_views.LogoutView.as_view(next_page='shop:product_list'), name='logout'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
