@@ -32,7 +32,6 @@ ALLOWED_HOSTS = [
     "localhost"
 ]
 
-ALLOWED_HOSTS = ['myproject-e05p.onrender.com', '127.0.0.1','*']
 
 
 
