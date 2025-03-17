@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,20 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7d(c+!++0h-x)a6^1_m4y-i_xd%zd)knjdc)%(==9jt-jkbt$l'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG', 'False').lower == 'true'
 
-ALLOWED_HOSTS = [
-    "myproject-e05p.onrender.com",
-    "127.0.0.1",
-    "localhost"
-]
-
-
-
-
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split('')
 
 # Application definition
 
@@ -93,6 +86,10 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+
+dj_database_url = os.environ.get('DATABASE_URL')
+DATABASES['default'] = dj_database_url.parse(dj_database_url)
+
 
 
 # Password validation
