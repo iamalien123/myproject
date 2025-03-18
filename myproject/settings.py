@@ -13,11 +13,10 @@ import cloudinary.api
 # BASE DIRECTORY
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # SECURITY SETTINGS
 SECRET_KEY = os.getenv('SECRET_KEY', 'xoja64b#+ojqd=6&x#24n6e8cfu6-b9%(&*n9@&ayhfcv+&xgn')  # Change this in production
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*"] 
 
 # INSTALLED APPS
 INSTALLED_APPS = [
@@ -31,7 +30,6 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'cloudinary',
     'cloudinary_storage',
-    'storages',
 ]
 
 # MIDDLEWARE
@@ -52,7 +50,7 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')], 
+        'DIRS': [BASE_DIR / 'templates'], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -99,12 +97,12 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# STATIC FILES (CSS, JavaScript, Images)
+# STATIC FILES
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'shop' / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# MEDIA FILES (User-Uploaded Files)
+# MEDIA FILES
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -112,38 +110,24 @@ MEDIA_ROOT = BASE_DIR / 'media'
 LOGIN_REDIRECT_URL = '/shop/'
 LOGIN_URL = '/accounts/login/'
 
-# SERVE MEDIA FILES DURING DEVELOPMENT
-if DEBUG:
-    from django.conf.urls.static import static
-    urlpatterns = static(MEDIA_URL, document_root=MEDIA_ROOT)
-
-
 # CLOUDINARY CONFIGURATION
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv("CLOUDINARY_CLOUD_NAME"),
-    'API_KEY': os.getenv("CLOUDINARY_API_KEY"),
-    'API_SECRET': os.getenv("CLOUDINARY_API_SECRET"),
+    'CLOUD_NAME': os.getenv("render-cloudinary"),
+    'API_KEY': os.getenv("326923337986544"),
+    'API_SECRET': os.getenv("OOJ4cOFnKyDaMOlcbnbS-xWAAQA"),
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# CLOUDINARY CONFIGURATION
+# Initialize Cloudinary
 cloudinary.config(
     cloud_name=os.getenv("render-cloudinary"),
     api_key=os.getenv("326923337986544"),
     api_secret=os.getenv("OOJ4cOFnKyDaMOlcbnbS-xWAAQA")
 )
 
-# CLOUDINARY CONFIGURATION
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-# AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
-# AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
-# AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
-# AWS_S3_REGION_NAME = os.getenv("AWS_S3_REGION_NAME", "us-east-1")
-# AWS_QUERYSTRING_AUTH = False
-
-
+# Serve media files during development
+from django import urlpatterns
 if DEBUG:
     from django.conf.urls.static import static
     urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)
