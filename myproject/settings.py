@@ -9,8 +9,7 @@ import dj_database_url
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-from django import urlpatterns
-from django.urls import path
+from django.conf.urls.static import static
 
 
 # BASE DIRECTORY
