@@ -86,12 +86,11 @@ DATABASES = {
     }
 }
 
-dj_database_url = os.environ.get('DATABASE_URL')
-DATABASE_URL = os.environ.get('DATABASE_URL')  # Get database URL from environment
+
+DATABASE_URL = os.getenv("DATABASE_URL")  # Get DATABASE_URL from environment variables
 
 if DATABASE_URL:
-    DATABASES['default'] = dj_database_url.parse(DATABASE_URL)
-
+    DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
