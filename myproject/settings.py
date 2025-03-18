@@ -9,6 +9,9 @@ import dj_database_url
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+from django import urlpatterns
+from django.urls import path
+
 
 # BASE DIRECTORY
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -127,7 +130,6 @@ cloudinary.config(
 )
 
 # Serve media files during development
-from django import urlpatterns
 if DEBUG:
     from django.conf.urls.static import static
     urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)
