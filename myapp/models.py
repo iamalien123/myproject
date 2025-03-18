@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 class Employee(models.Model):
     emp_id = models.AutoField(primary_key=True)
@@ -9,3 +10,9 @@ class Employee(models.Model):
 
     def __str__(self):
         return f"{self.emp_id} - {self.emp_name}"
+
+#cloudinary
+
+class Product(models.Model):
+    name = models.CharField(max_length=255)
+    image = CloudinaryField('image')  # Use CloudinaryField instead of ImageField
