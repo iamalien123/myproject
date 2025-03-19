@@ -9,9 +9,6 @@ import dj_database_url
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 
 # BASE DIRECTORY
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -113,19 +110,18 @@ MEDIA_ROOT = BASE_DIR / 'media'
 LOGIN_REDIRECT_URL = '/shop/'
 LOGIN_URL = '/accounts/login/'
 
-# CLOUDINARY CONFIGURATION
+# CLOUDINARY CONFIGURATION (HARD-CODED CREDENTIALS)
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv("myrender"),
-    'API_KEY': os.getenv("997228674434855"),
-    'API_SECRET': os.getenv("jewYfz5yrz0v4ToiTRmZUzr7_98"),
+    'CLOUD_NAME': "myrender",
+    'API_KEY': "997228674434855",
+    'API_SECRET': "jewYfz5yrz0v4ToiTRmZUzr7_98",
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Initialize Cloudinary
 cloudinary.config(
-    cloud_name=os.getenv("myrender"),
-    api_key=os.getenv("997228674434855"),
-    api_secret=os.getenv("jewYfz5yrz0v4ToiTRmZUzr7_98")
+    cloud_name="myrender",
+    api_key="997228674434855",
+    api_secret="jewYfz5yrz0v4ToiTRmZUzr7_98"                      
 )
-
