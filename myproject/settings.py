@@ -112,17 +112,17 @@ LOGIN_URL = '/accounts/login/'
 
 # CLOUDINARY CONFIGURATION
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv("render-cloudinary"),
-    'API_KEY': os.getenv("326923337986544"),
-    'API_SECRET': os.getenv("OOJ4cOFnKyDaMOlcbnbS-xWAAQA"),
+    'CLOUD_NAME': os.getenv("myrender"),
+    'API_KEY': os.getenv("997228674434855"),
+    'API_SECRET': os.getenv("jewYfz5yrz0v4ToiTRmZUzr7_98"),
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Initialize Cloudinary
 cloudinary.config(
-    cloud_name=os.getenv("render-cloudinary"),
-    api_key=os.getenv("326923337986544"),
-    api_secret=os.getenv("OOJ4cOFnKyDaMOlcbnbS-xWAAQA")
+    cloud_name=os.getenv("myrender"),
+    api_key=os.getenv("997228674434855"),
+    api_secret=os.getenv("jewYfz5yrz0v4ToiTRmZUzr7_98")
 )
 
