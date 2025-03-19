@@ -5,6 +5,7 @@
 <head>
     <title>Products</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'shop/images/favicon.ico' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'C:\Djprojects\simpledjango\myproject\shop\static\shop\images\favicon.ico' %}">
     <link rel="icon" type="image/png" sizes="96x96" href="{% static 'C:\Djprojects\simpledjango\myproject\shop\static\shop\images\favicon.ico' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'C:\Djprojects\simpledjango\myproject\shop\static\shop\images\favicon.ico' %}">
@@ -393,9 +394,9 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{% url 'shop:product_list' %}">
-                <img src="{% static 'https://res.cloudinary.com/dsu70sqbi/image/upload/v1742396095/logo_sjqfvr.gif' %}" alt="logo" class="navbar-logo">
+                <img src="https://res.cloudinary.com/dsu70sqbi/image/upload/v1742396095/logo_sjqfvr.gif" alt="logo" class="navbar-logo">
                 <span class="ms-2">My Shop</span>
-            </a>
+            </a>            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -403,9 +404,9 @@
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link d-flex align-items-center" href="{% url 'shop:product_list' %}">
-                            <img src="{% static 'shop/images/all.png' %}" alt="All Products" class="nav-icon">
+                            <img src="https://res.cloudinary.com/dsu70sqbi/image/upload/v1742396089/all_jrar6u.png" alt="All Products" class="nav-icon">
                             <span class="ms-2">All</span>
-                        </a>
+                        </a>                        
                     </li>
                     {% for c in categories %}
                     <li class="nav-item">
