@@ -20,6 +20,12 @@ class Product(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    @property
+    def correct_image_url(self):
+        if self.image and self.image.url.startswith("https://res.cloudinary.com/myrender/image/upload/v1/media/"):
+            return self.image.url.replace("https://res.cloudinary.com/myrender/image/upload/v1/media/", "")
+        return self.image.url
+
     def __str__(self):
         return self.name
 

@@ -125,3 +125,5 @@ cloudinary.config(
     api_key="997228674434855",
     api_secret="jewYfz5yrz0v4ToiTRmZUzr7_98"                      
 )
+MEDIA_URL = 'https://res.cloudinary.com/dsu70sqbi/image/upload/'
+

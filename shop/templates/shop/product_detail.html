@@ -132,14 +132,14 @@
                 <div class="swiper main-swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <img src="{{ product.correct_image_url  }}" alt="{{ product.name }}">
                         </div>
                         <!-- Add more slides if you have multiple images -->
                         <div class="swiper-slide">
-                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <img src="{{ product.correct_image_url  }}" alt="{{ product.name }}">
                         </div>
                         <div class="swiper-slide">
-                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <img src="{{ product.correct_image_url  }}" alt="{{ product.name }}">
                         </div>
                     </div>
                     <div class="swiper-button-next"></div>
@@ -220,5 +220,22 @@
             },
         });
     </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var mainSwiper = new Swiper(".main-swiper", {
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    });
+</script>
+
 </body>
 </html>
